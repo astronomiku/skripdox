@@ -1,24 +1,563 @@
+Copy everything below and replace the entire GitHub `index.html` file with it:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="SKRIP DOX script consultation and development support from Moira Lang and Michiko Yamamoto."
+    >
+    <title>SKRIP DOX | Script Consultation</title>
+    <style>
+      :root {
+        --ink: #18171f;
+        --muted: #686273;
+        --paper: #fff7df;
+        --white: #fffef8;
+        --acid: #d7ff4f;
+        --pink: #ff6fae;
+        --sky: #6fd8ff;
+        --mint: #78e7a6;
+        --orange: #ffad4f;
+        --violet: #7c65ff;
+        --shadow: 8px 8px 0 #18171f;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(24, 23, 31, 0.045) 1px, transparent 1px),
+          linear-gradient(rgba(24, 23, 31, 0.045) 1px, transparent 1px),
+          var(--paper);
+        background-size: 34px 34px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a { color: inherit; }
+
+      .site-header {
+        position: sticky;
+        z-index: 10;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px clamp(16px, 5vw, 64px);
+        background: rgba(255, 254, 248, 0.9);
+        border-bottom: 2px solid var(--ink);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+        padding: 6px 12px;
+        border: 2px solid var(--ink);
+        background: var(--acid);
+        box-shadow: 4px 4px 0 var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.1rem, 2vw, 1.55rem);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .nav a {
+        padding: 8px 13px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        background: var(--white);
+        font-size: 0.86rem;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .nav a:hover { background: var(--sky); }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.52fr);
+        gap: clamp(28px, 6vw, 76px);
+        align-items: center;
+        min-height: calc(100vh - 72px);
+        padding: clamp(34px, 6vw, 78px) clamp(18px, 6vw, 84px);
+        background:
+          linear-gradient(135deg, rgba(255, 111, 174, 0.18), transparent 35%),
+          linear-gradient(315deg, rgba(111, 216, 255, 0.24), transparent 32%),
+          rgba(255, 254, 248, 0.62);
+      }
+
+      .hero-copy { max-width: 940px; }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: #8d2759;
+        font-size: 0.78rem;
+        font-weight: 950;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { letter-spacing: 0; }
+
+      h1 {
+        max-width: 980px;
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(4.8rem, 14vw, 12.6rem);
+        font-weight: 900;
+        line-height: 0.78;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 980px;
+        margin-bottom: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.45rem, 6vw, 6.5rem);
+        font-weight: 900;
+        line-height: 0.95;
+      }
+
+      h3 {
+        margin-bottom: 12px;
+        font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+        line-height: 1.02;
+      }
+
+      .hero-subtitle {
+        display: inline;
+        padding: 0 8px 4px;
+        background: var(--pink);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.55rem, 3.8vw, 3.45rem);
+        font-weight: 900;
+        line-height: 1.16;
+      }
+
+      .hero-copy > p:not(.eyebrow):not(.hero-subtitle) {
+        max-width: 720px;
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: clamp(1.06rem, 1.7vw, 1.32rem);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+        margin-top: 16px;
+        padding: 13px 21px;
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        color: var(--ink);
+        background: var(--acid);
+        box-shadow: 5px 5px 0 var(--ink);
+        font-weight: 950;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .button:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 2px 2px 0 var(--ink);
+      }
+
+      .button-dark {
+        color: var(--white);
+        background: var(--ink);
+        box-shadow: 5px 5px 0 var(--pink);
+      }
+
+      .hero-art {
+        position: relative;
+        justify-self: center;
+        width: min(100%, 390px);
+      }
+
+      .hero-art img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1.16;
+        object-fit: cover;
+        object-position: center;
+        border: 3px solid var(--ink);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        transform: rotate(1.5deg);
+      }
+
+      .note {
+        position: absolute;
+        padding: 10px 14px;
+        border: 2px solid var(--ink);
+        background: var(--white);
+        box-shadow: 4px 4px 0 var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.12rem;
+        font-weight: 900;
+      }
+
+      .note-one {
+        top: 8%;
+        left: -8%;
+        background: var(--sky);
+        transform: rotate(-7deg);
+      }
+
+      .note-two {
+        right: -8%;
+        top: 42%;
+        background: var(--pink);
+        transform: rotate(8deg);
+      }
+
+      .note-three {
+        left: 13%;
+        bottom: -4%;
+        background: var(--mint);
+        transform: rotate(-2deg);
+      }
+
+      .method-strip {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        background: var(--ink);
+      }
+
+      .method-strip span {
+        min-height: 58px;
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        border-right: 2px solid var(--ink);
+        color: var(--ink);
+        background: var(--white);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(0.92rem, 1.5vw, 1.35rem);
+        font-weight: 900;
+      }
+
+      .method-strip span:nth-child(2n) { background: var(--acid); }
+      .method-strip span:nth-child(3n) { background: var(--sky); }
+      .method-strip span:nth-child(5n) { background: var(--pink); }
+
+      .band {
+        padding: clamp(58px, 8vw, 110px) clamp(18px, 6vw, 84px);
+      }
+
+      .section-heading {
+        display: grid;
+        gap: 18px;
+        max-width: 1040px;
+        margin-bottom: clamp(28px, 5vw, 56px);
+        color: var(--muted);
+        font-size: clamp(1.04rem, 1.6vw, 1.24rem);
+      }
+
+      .services { background: var(--white); }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .service-card {
+        position: relative;
+        min-height: 310px;
+        padding: 24px;
+        border: 3px solid var(--ink);
+        background: #fff1a6;
+        box-shadow: var(--shadow);
+      }
+
+      .service-card:nth-child(2) {
+        margin-top: 28px;
+        background: #ffd1e7;
+      }
+
+      .service-card:nth-child(3) { background: #c9f8d7; }
+
+      .service-card:nth-child(4) {
+        margin-top: 28px;
+        background: #c8efff;
+      }
+
+      .card-number {
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .service-label {
+        max-width: 70%;
+        margin-bottom: 72px;
+        font-size: 0.78rem;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .service-card h3 {
+        margin-bottom: 12px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.85rem, 3vw, 3rem);
+      }
+
+      .service-card p:last-child {
+        margin-bottom: 0;
+        color: rgba(24, 23, 31, 0.72);
+        font-weight: 760;
+      }
+
+      .bio { background: #fff7df; }
+
+      .bio-grid {
+        display: grid;
+        gap: 26px;
+      }
+
+      .bio-card {
+        display: grid;
+        grid-template-columns: minmax(210px, 0.28fr) minmax(0, 1fr);
+        gap: clamp(22px, 4vw, 46px);
+        align-items: start;
+        padding: clamp(18px, 3vw, 28px);
+        border: 3px solid var(--ink);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .bio-card:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr) minmax(210px, 0.28fr);
+      }
+
+      .bio-card:nth-child(even) .bio-portrait { order: 2; }
+
+      .bio-portrait {
+        position: sticky;
+        top: 94px;
+        min-height: 340px;
+        max-height: 430px;
+        aspect-ratio: 4 / 5;
+        border: 3px solid var(--ink);
+        background-color: var(--orange);
+        background-position: center;
+        background-size: cover;
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      .moira-portrait {
+        background-image: linear-gradient(135deg, rgba(255, 111, 174, 0.42), rgba(255, 173, 79, 0.22)), url("assets/MOIRAPIC.jpeg");
+      }
+
+      .michiko-portrait {
+        background-image: linear-gradient(135deg, rgba(111, 216, 255, 0.36), rgba(120, 231, 166, 0.22)), url("assets/IMG_6304.JPG");
+      }
+
+      .bio-content {
+        padding: clamp(8px, 2vw, 18px);
+        columns: 2 280px;
+        column-gap: clamp(24px, 4vw, 46px);
+      }
+
+      .bio-card h3,
+      .bio-lede {
+        break-after: avoid;
+        column-span: all;
+      }
+
+      .bio-card h3 {
+        margin-bottom: 14px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.6rem, 6vw, 6.4rem);
+        line-height: 0.92;
+      }
+
+      .bio-lede {
+        max-width: 900px;
+        margin-bottom: 24px;
+        padding: 14px 18px;
+        border: 2px solid var(--ink);
+        background: var(--acid);
+        box-shadow: 5px 5px 0 var(--ink);
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2vw, 2rem);
+        font-weight: 900;
+        line-height: 1.12;
+      }
+
+      .bio-card p { color: rgba(24, 23, 31, 0.78); }
+      .bio-card p:last-child { margin-bottom: 0; }
+
+      cite {
+        color: var(--ink);
+        font-style: italic;
+      }
+
+      .contact { background: var(--violet); }
+
+      .contact-panel {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 58px);
+        border: 3px solid var(--ink);
+        background: var(--white);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .contact-panel h2 { margin-inline: auto; }
+
+      .contact-panel p {
+        max-width: 680px;
+        margin-inline: auto;
+        color: var(--muted);
+        font-size: clamp(1.04rem, 1.6vw, 1.24rem);
+      }
+
+      .site-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 24px clamp(18px, 6vw, 84px);
+        color: var(--ink);
+        background: var(--white);
+        border-top: 2px solid var(--ink);
+      }
+
+      .site-footer p {
+        margin: 0;
+        font-weight: 950;
+      }
+
+      .site-footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      @media (max-width: 1080px) {
+        .hero,
+        .bio-card,
+        .bio-card:nth-child(even) {
+          grid-template-columns: 1fr;
+        }
+
+        .bio-card:nth-child(even) .bio-portrait { order: 0; }
+
+        .bio-portrait {
+          position: static;
+          min-height: 320px;
+          max-height: none;
+        }
+
+        .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .method-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      }
+
+      @media (max-width: 680px) {
+        .site-header { align-items: flex-start; }
+
+        .brand {
+          max-width: 148px;
+          line-height: 1;
+        }
+
+        .nav a {
+          padding: 7px 10px;
+          font-size: 0.78rem;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 34px;
+        }
+
+        h1 { font-size: 4.55rem; }
+        h2 { font-size: 2.7rem; }
+
+        .hero-art { width: min(94%, 420px); }
+        .note { font-size: 0.95rem; }
+        .note-one { left: -4%; }
+        .note-two { right: -3%; }
+
+        .method-strip,
+        .service-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card,
+        .service-card:nth-child(2),
+        .service-card:nth-child(4) {
+          min-height: 240px;
+          margin-top: 0;
+        }
+
+        .bio-card { padding: 14px; }
+        .bio-portrait { min-height: 280px; }
+        .bio-content { columns: 1; }
+        .bio-card h3 { font-size: 3rem; }
+        .site-footer { display: grid; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand" href="#top">SKRIP DOX</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#bio">Bio</a>
+        <a href="#contact">Email</a>
+      </nav>
+    </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Story • Kiliti • Rewrite • Instinct • Pulse — Diagnosis • Options • Execution</p>
           <p class="eyebrow">Story • Kiliti • Rewrite • Instinct • Pulse</p>
           <h1 id="hero-title">SKRIP DOX</h1>
-          <p class="hero-subtitle">Script consultation with teeth, tenderness, and actual cinema mileage.</p>
           <p class="hero-subtitle">Diagnosis • Options • Execution</p>
           <p>
-            Full-script feedback and development conversations with Moira Lang and Michiko Yamamoto,
-            for writers and producers looking for rigorous, generous, no-fluff script support.
             Script consultation with teeth, tenderness, and actual cinema mileage. Full-script
             feedback and development conversations with Moira Lang and Michiko Yamamoto.
           </p>
           <a class="button" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry">
-            Ask about availability
             Email for the rate card
           </a>
         </div>
         <div class="hero-art" aria-hidden="true">
+          <img src="assets/script-consultation-hero.png" alt="">
+          <div class="note note-one">structure</div>
+          <div class="note note-two">ache</div>
+          <div class="note note-three">rewrite?</div>
         </div>
       </section>
 
@@ -36,7 +575,6 @@
       <section class="services band" id="services" aria-labelledby="services-title">
         <div class="section-heading">
           <p class="eyebrow">Services offered</p>
-          <h2 id="services-title">Pick the kind of conversation your draft needs.</h2>
           <h2 id="services-title">Not coverage. A real conversation with the draft.</h2>
         </div>
 
@@ -48,65 +586,131 @@
             <p>A full read with clear notes on structure, character, emotional logic, tone, and the next rewrite.</p>
           </article>
 
-          <article class="service-card feature-card">
+          <article class="service-card">
             <span class="card-number">02</span>
             <p class="service-label">Development Package</p>
             <h3>Across Drafts</h3>
             <p>Three consultations that follow the project through revision, recalibration, and deeper story work.</p>
           </article>
 
-          <article class="service-card support-card">
+          <article class="service-card">
             <span class="card-number">03</span>
             <p class="service-label">First Feature Support</p>
             <h3>One Consultation</h3>
             <p>A focused session for first-time feature filmmakers who need a sharp outside read.</p>
           </article>
 
-          <article class="service-card support-card">
+          <article class="service-card">
             <span class="card-number">04</span>
             <p class="service-label">First Feature Support</p>
             <h3>Three Consultations</h3>
             <p>A longer runway for first features moving through major rewrites and creative decisions.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="bio band" id="bio" aria-labelledby="bio-title">
         <div class="section-heading">
           <p class="eyebrow">Bio</p>
-          <h2 id="bio-title">Two filmographies. One very serious relationship with story.</h2>
           <h2 id="bio-title">Two filmographies. One serious relationship with story.</h2>
         </div>
 
         <div class="bio-grid">
           <article class="bio-card">
-            <img class="bio-photo" src="assets/MOIRAPIC.jpeg" alt="Moira Lang">
             <div class="bio-portrait moira-portrait" role="img" aria-label="Moira Lang"></div>
             <div class="bio-content">
-            <h3>Moira Lang</h3>
-            <p class="bio-lede">
-              Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
-            </p>
-            <p>
-              Moira Lang is what happens when commercial instinct, queer spunk and ache, class
-              friction, and years inside the workings of Philippine cinema all get locked in a room
-              comfortably in either. It has started conversations, won awards, offended, and made
-              audiences laugh, sob, and question what they were raised to believe.
-            </p>
+              <h3>Moira Lang</h3>
+              <p class="bio-lede">
+                Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
+              </p>
+              <p>
+                Moira Lang is what happens when commercial instinct, queer spunk and ache, class
+                friction, and years inside the workings of Philippine cinema all get locked in a room
+                and decide to make something together.
+              </p>
+              <p>
+                She has co-written films that made people cry over a nation of mothers separated from
+                their children (<cite>Anak</cite>), see themselves and their conflicted families
+                (<cite>Tanging Yaman</cite>), flirt with hunger and longing (<cite>Kailangan Kita</cite>),
+                and turn OFW heartbreak into aching romance (<cite>Milan</cite>).
+              </p>
+              <p>
+                She later produced films that pushed further outward: <cite>Ang Pagdadalaga ni Maximo
+                Oliveros</cite>, which turned queer awakening into something tender, funny, and
+                politically dangerous; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a
+                gleeful exorcism of macho panic and small-town hypocrisy; <cite>Norte, Hangganan ng
+                Kasaysayan</cite>, a portrait of privilege and desperation in a country where
+                revolutions are betrayed by the very people who inherit them; <cite>Patay na si
+                Hesus</cite>, which transformed familial chaos into a hilariously profane and deeply
+                Filipino meditation on grief; and <cite>Manila's Finest</cite>, a fever dream of
+                power, corruption, and a nation sleepwalking toward authoritarianism.
+              </p>
+              <p>
+                Her filmography moves between the mainstream and the margins without settling
+                comfortably in either. It has started conversations, won awards, offended, and made
+                audiences laugh, sob, and question what they were raised to believe.
+              </p>
             </div>
           </article>
 
           <article class="bio-card">
-            <img class="bio-photo" src="assets/IMG_6304.JPG" alt="Michiko Yamamoto">
             <div class="bio-portrait michiko-portrait" role="img" aria-label="Michiko Yamamoto"></div>
             <div class="bio-content">
-            <h3>Michiko Yamamoto</h3>
-            <p class="bio-lede">
-              Emotional precision, distrust of sentimentality, and a deep belief in tenderness.
-            </p>
-            <p>
-              Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
-            </p>
-              awards, unsettled audiences, and quietly reshaped the emotional vocabulary of
-              contemporary Filipino cinema.
-            </p>
+              <h3>Michiko Yamamoto</h3>
+              <p class="bio-lede">
+                Emotional precision, distrust of sentimentality, and a deep belief in tenderness.
+              </p>
+              <p>
+                Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
+              </p>
+              <p>
+                A mathematics graduate who found her way into cinema through instinct, observation,
+                and emotional precision, she has spent the last two decades writing some of the most
+                quietly devastating films in Philippine cinema.
+              </p>
+              <p>
+                Her work includes <cite>Magnifico</cite>, which found grace and dignity in poverty
+                without looking away from its cruelties; <cite>Ang Pagdadalaga ni Maximo
+                Oliveros</cite>, a tender portrait of queer adolescence in a world already teaching it
+                shame; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism
+                of macho panic and small-town hypocrisy; and <cite>On the Job</cite>, <cite>Honor Thy
+                Father</cite>, and <cite>Manila's Finest</cite>, portraits of corruption, survival,
+                and institutions that consume the people trapped inside them.
+              </p>
+              <p>
+                Her filmography moves between intimacy and violence without announcing the shift. She
+                writes ordinary people cornered by systems larger than themselves: families, churches,
+                governments, masculinity, poverty, history. Even at their funniest, her films know how
+                close people are to breaking.
+              </p>
+              <p>
+                Michiko rarely explains her work in public. The films do the talking. They have won
+                awards, unsettled audiences, and quietly reshaped the emotional vocabulary of
+                contemporary Filipino cinema.
+              </p>
             </div>
           </article>
         </div>
       </section>
+
+      <section class="contact band" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel">
+          <p class="eyebrow">Send the draft coordinates</p>
+          <h2 id="contact-title">Email us your format, page count, draft stage, and timeline.</h2>
+          <p>
+            We will reply with availability, the most relevant consultation option, and the rate card.
+          </p>
+          <a class="button button-dark" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry&body=Hello%2C%0A%0AI%27d%20like%20to%20ask%20about%20script%20consultation.%0A%0AProject%20format%3A%0APage%20count%3A%0ADraft%20stage%3A%0ATimeline%3A%0AWhat%20I%27m%20looking%20for%3A%0A">
+            Email Moira + Michiko
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>SKRIP DOX by Moira Lang + Michiko Yamamoto</p>
+      <a href="mailto:hello@yourscriptstudio.com">hello@yourscriptstudio.com</a>
+    </footer>
+  </body>
+</html>
+```
