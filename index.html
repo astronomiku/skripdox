@@ -294,39 +294,6 @@
         transform: rotate(-3deg);
       }
 
-      .method-strip {
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        border-top: 2px solid var(--ink);
-        border-bottom: 2px solid var(--ink);
-        background: var(--ink);
-      }
-
-      .method-strip span {
-        min-height: 58px;
-        display: grid;
-        place-items: center;
-        padding: 10px;
-        border-right: 2px solid var(--ink);
-        color: var(--ink);
-        background: var(--white);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(0.92rem, 1.5vw, 1.35rem);
-        font-weight: 900;
-      }
-
-      .method-strip span:nth-child(2n) {
-        background: var(--acid);
-      }
-
-      .method-strip span:nth-child(3n) {
-        background: var(--sky);
-      }
-
-      .method-strip span:nth-child(5n) {
-        background: var(--pink);
-      }
-
       .band {
         padding: clamp(58px, 8vw, 110px) clamp(18px, 6vw, 84px);
       }
@@ -565,9 +532,6 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .method-strip {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
       }
 
       @media (max-width: 680px) {
@@ -624,7 +588,6 @@
           right: -2%;
         }
 
-        .method-strip,
         .service-grid {
           grid-template-columns: 1fr;
         }
@@ -698,8 +661,6 @@
         </div>
       </section>
 
-
-
       <section class="services band" id="services" aria-labelledby="services-title">
         <div class="section-heading">
           <p class="eyebrow">Services offered</p>
@@ -730,7 +691,7 @@
 
           <article class="service-card support-card">
             <span class="card-number">04</span>
-            <p class="service-label">First Feature Extended</p>
+            <p class="service-label">First Feature Support</p>
             <h3>Three Consultations</h3>
             <p>A longer runway for first features moving through major rewrites and creative decisions.</p>
           </article>
@@ -752,26 +713,23 @@
               Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
             </p>
             <p>
-              Moira Lang is what happens when commercial instinct, queer spunk and ache, class
-              friction, and years inside the workings of Philippine cinema all get locked in a room
-              and decide to make something together.
+              Moira Lang grew out of equal parts commercial instinct, queer spunk and ache, class
+              friction, and a long, intimate education in Philippine cinema. She has co-written
+              films that made many cry over a nation of mothers separated from their children
+              (<cite>Anak</cite>), see themselves and their conflicted families (<cite>Tanging
+              Yaman</cite>), flirt with hunger and longing (<cite>Kailangan Kita</cite>), and turn
+              OFW heartbreak into aching romance (<cite>Milan</cite>).
             </p>
             <p>
-              She has co-written films that made people cry over a nation of mothers separated from
-              their children (<cite>Anak</cite>), see themselves and their conflicted families
-              (<cite>Tanging Yaman</cite>), flirt with hunger and longing (<cite>Kailangan Kita</cite>),
-              and turn OFW heartbreak into aching romance (<cite>Milan</cite>).
-            </p>
-            <p>
-              She later produced films that pushed further outward: <cite>Ang Pagdadalaga ni Maximo
-              Oliveros</cite>, which turned queer awakening into something tender, funny, and
-              politically dangerous; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a
-              gleeful exorcism of macho panic and small-town hypocrisy; <cite>Norte, Hangganan ng
-              Kasaysayan</cite>, a portrait of privilege and desperation in a country where
-              revolutions are betrayed by the very people who inherit them; <cite>Patay na si
-              Hesus</cite>, which transformed familial chaos into a hilariously profane and deeply
-              Filipino meditation on grief; and <cite>Manila's Finest</cite>, a fever dream of
-              power, corruption, and a nation sleepwalking toward authoritarianism.
+              As a producer she kept pushing: <cite>Ang Pagdadalaga ni Maximo Oliveros</cite>,
+              which turned queer awakening into something tender, funny, and politically dangerous;
+              <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism of
+              macho panic and small-town hypocrisy; <cite>Norte, Hangganan ng Kasaysayan</cite>, a
+              portrait of privilege and desperation in a country where revolutions are betrayed by
+              the very people who inherit them; <cite>Patay na si Hesus</cite>, which turned
+              familial chaos into a hilariously profane and deeply Filipino meditation on grief; and
+              <cite>Manila's Finest</cite>, a fever dream of power, corruption, and a nation
+              sleepwalking toward authoritarianism.
             </p>
             <p>
               Her filmography moves between the mainstream and the margins without settling
@@ -824,9 +782,9 @@
       <section class="contact band" id="contact" aria-labelledby="contact-title">
         <div class="contact-panel">
           <p class="eyebrow">Send the draft coordinates</p>
-          <h2 id="contact-title">Email us.</h2>
+          <h2 id="contact-title">Email us your format, page count, draft stage, and timeline.</h2>
           <p>
-            We read everything that lands in our inbox.
+            We will reply with availability, the most relevant consultation option, and the rate card.
           </p>
           <a class="button button-dark" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry&body=Hello%2C%0A%0AI%27d%20like%20to%20ask%20about%20script%20consultation.%0A%0AProject%20format%3A%0APage%20count%3A%0ADraft%20stage%3A%0ATimeline%3A%0AWhat%20I%27m%20looking%20for%3A%0A">
             Email Moira + Michiko
