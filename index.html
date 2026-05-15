@@ -294,38 +294,7 @@
         transform: rotate(-3deg);
       }
 
-      .method-strip {
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        border-top: 2px solid var(--ink);
-        border-bottom: 2px solid var(--ink);
-        background: var(--ink);
-      }
 
-      .method-strip span {
-        min-height: 58px;
-        display: grid;
-        place-items: center;
-        padding: 10px;
-        border-right: 2px solid var(--ink);
-        color: var(--ink);
-        background: var(--white);
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(0.92rem, 1.5vw, 1.35rem);
-        font-weight: 900;
-      }
-
-      .method-strip span:nth-child(2n) {
-        background: var(--acid);
-      }
-
-      .method-strip span:nth-child(3n) {
-        background: var(--sky);
-      }
-
-      .method-strip span:nth-child(5n) {
-        background: var(--pink);
-      }
 
       .band {
         padding: clamp(58px, 8vw, 110px) clamp(18px, 6vw, 84px);
@@ -564,10 +533,6 @@
         .service-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-
-        .method-strip {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
       }
 
       @media (max-width: 680px) {
@@ -598,33 +563,11 @@
           font-size: 2.7rem;
         }
 
+        /* Hide hero art on mobile — it's a placeholder and the notes clip badly */
         .hero-art {
-          width: min(94%, 420px);
+          display: none;
         }
 
-        .note {
-          font-size: 0.95rem;
-        }
-
-        .note-one {
-          left: -2%;
-        }
-
-        .note-two {
-          right: -2%;
-        }
-
-        .note-three,
-        .note-five {
-          left: -2%;
-        }
-
-        .note-four,
-        .note-six {
-          right: -2%;
-        }
-
-        .method-strip,
         .service-grid {
           grid-template-columns: 1fr;
         }
@@ -632,7 +575,7 @@
         .service-card,
         .service-card:nth-child(2),
         .service-card:nth-child(4) {
-          min-height: 240px;
+          min-height: 200px;
           margin-top: 0;
         }
 
@@ -641,19 +584,29 @@
         }
 
         .bio-portrait {
-          min-height: 280px;
+          min-height: 260px;
         }
 
         .bio-content {
           columns: 1;
+          padding: 4px;
         }
 
         .bio-card h3 {
-          font-size: 3rem;
+          font-size: 2.6rem;
+        }
+
+        .bio-lede {
+          font-size: 1.1rem;
+        }
+
+        .contact-panel {
+          padding: 28px 18px;
         }
 
         .site-footer {
           display: grid;
+          gap: 8px;
         }
       }
     </style>
