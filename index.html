@@ -294,8 +294,6 @@
         transform: rotate(-3deg);
       }
 
-
-
       .band {
         padding: clamp(58px, 8vw, 110px) clamp(18px, 6vw, 84px);
       }
@@ -322,6 +320,7 @@
       .service-card {
         position: relative;
         padding: 24px;
+        padding-top: 60px;
         border: 3px solid var(--ink);
         background: #fff1a6;
         box-shadow: var(--shadow);
@@ -343,17 +342,17 @@
 
       .card-number {
         position: absolute;
-        top: 16px;
+        top: 12px;
         right: 18px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 3rem;
+        font-size: 2.2rem;
         font-weight: 900;
         line-height: 1;
       }
 
       .service-label {
         max-width: 70%;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         font-size: 0.78rem;
         font-weight: 950;
         text-transform: uppercase;
@@ -532,6 +531,11 @@
         .service-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .service-card:nth-child(2),
+        .service-card:nth-child(4) {
+          margin-top: 0;
+        }
       }
 
       @media (max-width: 680px) {
@@ -562,7 +566,6 @@
           font-size: 2.7rem;
         }
 
-        /* Hide hero art on mobile — it's a placeholder and the notes clip badly */
         .hero-art {
           display: none;
         }
@@ -574,7 +577,6 @@
         .service-card,
         .service-card:nth-child(2),
         .service-card:nth-child(4) {
-          min-height: 200px;
           margin-top: 0;
         }
 
@@ -648,8 +650,6 @@
         </div>
       </section>
 
-
-
       <section class="services band" id="services" aria-labelledby="services-title">
         <div class="section-heading">
           <p class="eyebrow">Services offered</p>
@@ -697,64 +697,60 @@
           <article class="bio-card">
             <div class="bio-portrait moira-portrait" role="img" aria-label="Moira Lang"></div>
             <div class="bio-content">
-            <h3>Moira Lang</h3>
-            <p class="bio-lede">
-  Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
-</p>
-
-<p>
-  Moira Lang grew out of equal parts commercial instinct, queer spunk and ache, class friction, and a long, intimate education in Philippine cinema.
-</p>
-
-<p>
-  She has co-written films like <cite>Anak</cite>, which turned the pain of mothers separated from their children into something felt across the country; <cite>Tanging Yaman</cite>, a portrait of inheritance, guilt, and families unable to love each other cleanly; <cite>Kailangan Kita</cite>, where romance carried the ache of migration and longing; and <cite>Milan</cite>, which transformed OFW heartbreak into modern melodrama.
-</p>
-
-<p>
-  As a producer, she kept pushing toward stranger and riskier territory: <cite>Ang Pagdadalaga ni Maximo Oliveros</cite>, a tender portrait of queer awakening in a violent world; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism of macho panic and small-town hypocrisy; <cite>Norte, Hangganan ng Kasaysayan</cite>, a portrait of privilege, guilt, and a country trapped in cycles of betrayal; <cite>Patay na si Hesus</cite>, which turned familial chaos into something profane, hilarious, and deeply Filipino; and <cite>Manila's Finest</cite>, a fever dream of corruption, power, and a nation sleepwalking toward authoritarianism.
-</p>
-
-<p>
-  Her filmography moves between the mainstream and the margins without settling comfortably in either. Her work has started conversations, won awards, offended institutions, and made audiences laugh, sob, and question what they were raised to believe.
-</p>
+              <h3>Moira Lang</h3>
+              <p class="bio-lede">
+                Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
+              </p>
+              <p>
+                Moira Lang grew out of equal parts commercial instinct, queer spunk and ache, class friction, and a long, intimate education in Philippine cinema.
+              </p>
+              <p>
+                She has co-written films like <cite>Anak</cite>, which turned the pain of mothers separated from their children into something felt across the country; <cite>Tanging Yaman</cite>, a portrait of inheritance, guilt, and families unable to love each other cleanly; <cite>Kailangan Kita</cite>, where romance carried the ache of migration and longing; and <cite>Milan</cite>, which transformed OFW heartbreak into modern melodrama.
+              </p>
+              <p>
+                As a producer, she kept pushing toward stranger and riskier territory: <cite>Ang Pagdadalaga ni Maximo Oliveros</cite>, a tender portrait of queer awakening in a violent world; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism of macho panic and small-town hypocrisy; <cite>Norte, Hangganan ng Kasaysayan</cite>, a portrait of privilege, guilt, and a country trapped in cycles of betrayal; <cite>Patay na si Hesus</cite>, which turned familial chaos into something profane, hilarious, and deeply Filipino; and <cite>Manila's Finest</cite>, a fever dream of corruption, power, and a nation sleepwalking toward authoritarianism.
+              </p>
+              <p>
+                Her filmography moves between the mainstream and the margins without settling comfortably in either. Her work has started conversations, won awards, offended institutions, and made audiences laugh, sob, and question what they were raised to believe.
+              </p>
             </div>
           </article>
 
           <article class="bio-card">
             <div class="bio-portrait michiko-portrait" role="img" aria-label="Michiko Yamamoto"></div>
             <div class="bio-content">
-            <h3>Michiko Yamamoto</h3>
-            <p class="bio-lede">
-              Emotional precision, distrust of sentimentality, and a deep belief in tenderness.
-            </p>
-            <p>
-              Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
-            </p>
-            <p>
-              A mathematics graduate who found her way into cinema through instinct, observation,
-              and emotional precision, she has spent the last two decades writing some of the most
-              quietly devastating films in Philippine cinema.
-            </p>
-            <p>
-              Her work includes <cite>Magnifico</cite>, which found grace and dignity in poverty
-              without looking away from its cruelties; <cite>Ang Pagdadalaga ni Maximo
-              Oliveros</cite>, a tender portrait of queer adolescence in a world already teaching it
-              shame; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism
-              of macho panic and small-town hypocrisy; and <cite>On the Job</cite>, <cite>Honor Thy
-              Father</cite>, and <cite>Manila's Finest</cite>, portraits of corruption, survival,
-              and institutions that consume the people trapped inside them.
-            </p>
-            <p>
-              Her filmography moves between intimacy and violence without announcing the shift. She
-              writes ordinary people cornered by systems larger than themselves: families, churches,
-              governments, masculinity, poverty, history. Even at their funniest, her films know how
-              close people are to breaking.
-            </p>
-            <p>
-              Michiko rarely explains her work in public. The films do the talking. They have won
-              awards, unsettled audiences, and quietly reshaped the emotional vocabulary of
-              contemporary Filipino cinema.
-            </p>
+              <h3>Michiko Yamamoto</h3>
+              <p class="bio-lede">
+                Emotional precision, distrust of sentimentality, and a deep belief in tenderness.
+              </p>
+              <p>
+                Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
+              </p>
+              <p>
+                A mathematics graduate who found her way into cinema through instinct, observation,
+                and emotional precision, she has spent the last two decades writing some of the most
+                quietly devastating films in Philippine cinema.
+              </p>
+              <p>
+                Her work includes <cite>Magnifico</cite>, which found grace and dignity in poverty
+                without looking away from its cruelties; <cite>Ang Pagdadalaga ni Maximo
+                Oliveros</cite>, a tender portrait of queer adolescence in a world already teaching it
+                shame; <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>, a gleeful exorcism
+                of macho panic and small-town hypocrisy; and <cite>On the Job</cite>, <cite>Honor Thy
+                Father</cite>, and <cite>Manila's Finest</cite>, portraits of corruption, survival,
+                and institutions that consume the people trapped inside them.
+              </p>
+              <p>
+                Her filmography moves between intimacy and violence without announcing the shift. She
+                writes ordinary people cornered by systems larger than themselves: families, churches,
+                governments, masculinity, poverty, history. Even at their funniest, her films know how
+                close people are to breaking.
+              </p>
+              <p>
+                Michiko rarely explains her work in public. The films do the talking. They have won
+                awards, unsettled audiences, and quietly reshaped the emotional vocabulary of
+                contemporary Filipino cinema.
+              </p>
             </div>
           </article>
         </div>
@@ -772,7 +768,7 @@
       </section>
     </main>
 
- <footer class="site-footer">
+    <footer class="site-footer">
       <p>SKRIP DOX by Moira Lang + Michiko Yamamoto</p>
       <a href="https://themadgoats.com" target="_blank" rel="noopener" style="color: #c0000a; font-size: 0.78rem; font-weight: 900; text-decoration: none;">Website by The Mad Goats</a>
     </footer>
