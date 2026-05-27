@@ -576,47 +576,55 @@
         min-width: 40px;
       }
 
-  .services-floorplan {
+.services-floorplan {
   position: relative;
   z-index: 1;
   min-height: 760px;
-  padding: clamp(40px, 6vw, 90px);
+  padding: 0;
 }
 
 .flr-room {
   position: absolute;
-  max-width: 320px;
-  padding: 22px 24px;
-   background: rgba(27, 22, 20, 0.84);
-  border: 1px solid rgba(239, 226, 206, 0.22);
-  backdrop-filter: blur(6px);
+  max-width: 300px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .flr-room:nth-child(1) {
-  top: 12%;
-  left: 9%;
+  top: 13%;
+  left: 8%;
 }
 
 .flr-room:nth-child(2) {
   top: 36%;
-  right: 13%;
+  right: 9%;
 }
 
 .flr-room:nth-child(3) {
-  bottom: 12%;
-  left: 32%;
+  bottom: 14%;
+  left: 34%;
 }
 
-.flr-room .eyebrow {
-  color: var(--parchment);
+.flr-room .eyebrow,
+.flr-room h3,
+.flr-room p {
+  color: #efe2ce;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.16),
+    0 -1px 0 rgba(0,0,0,0.65),
+    2px 2px 6px rgba(0,0,0,0.5);
 }
 
 .flr-room h3 {
-  color: var(--paper);
+  font-size: clamp(1.45rem, 2vw, 2.35rem);
+  line-height: 1.08;
 }
 
 .flr-room p {
-  color: var(--plaster);
+  color: #d9cbb5;
 }
 
 .services-niche {
