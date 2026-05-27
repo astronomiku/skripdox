@@ -1,536 +1,787 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="Skrip Dox script consultation studio by Moira Lang and Michiko Yamamoto."
-  >
-
-  <title>Skrip Dox | Script Consultation Studio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --ink: #1b1614;
-      --walnut: #321d18;
-      --deep-green: #24352f;
-      --paper: #efe2ce;
-      --ivory: #d8cbb7;
-      --cream: #f3e8d5;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--ivory);
-      font-family: "Source Sans 3", sans-serif;
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 112px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 0 clamp(28px, 5vw, 72px);
-  background-image: url("assets/terracotta.jpg");
-  background-size: auto 100%;
-  background-repeat: repeat-x;
-  background-position: center;
-}
-
-.nav-logo {
-  grid-column: 1;
-  justify-self: start;
-  display: flex;
-  align-items: center;
-}
-
-    .nav-logo img {
-      height: clamp(72px, 8vw, 104px);
-      width: auto;
-      display: block;
-      filter:
-        drop-shadow(0 2px 2px rgba(0,0,0,0.45))
-        drop-shadow(0 -1px 0 rgba(255,255,255,0.25));
-    }
-
-    .nav {
-      grid-column: 3;
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      gap: clamp(28px, 4vw, 56px);
-      font-size: 0.86rem;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav a {
-      color: #f3e8d5;
-      text-shadow:
-        0 1px 2px rgba(0,0,0,0.65),
-        0 -1px 0 rgba(255,255,255,0.18);
-    }
-
-    .nav a:hover {
-      color: #ffffff;
-      border-bottom: 2px solid #f3e8d5;
-    }
-
-    .panel {
-      width: min(100%, 1500px);
-      margin: 0 auto;
-      box-shadow:
-        inset 0 12px 20px rgba(255,255,255,0.08),
-        inset 0 -14px 24px rgba(40,25,18,0.22);
-    }
-
-    .hero-panel {
-      position: relative;
-      min-height: calc(100vh - 112px);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: var(--walnut);
-      color: var(--paper);
-    }
-
-   .hero-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: url("assets/stethoscope.png");
-  background-size: cover;
-  background-position: center;
-
-  filter: brightness(0.66) contrast(1.04) saturate(0.92);
-
-  animation: imageDissolve 4.8s ease forwards;
-}
-
- .hero-panel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: rgba(27, 22, 20, 0.46);
-
-  animation: veilIn 4.8s ease forwards;
-}
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      padding: clamp(28px, 5vw, 64px);
-      animation: titleReveal 1.8s ease forwards;
-    }
-
-    .hero-panel.replay .hero-content {
-  animation: none;
-}
-
-.hero-panel.replay .hero-content.replay {
-  animation: titleReveal 1.8s ease forwards;
-}
-
-.hero-panel.replay::before {
-  animation: imageDissolve 4.8s ease forwards;
-}
-
-.hero-panel.replay::after {
-  animation: veilIn 4.8s ease forwards;
-}
-
-    .eyebrow {
-      margin: 0 0 14px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .hero-panel .eyebrow {
-      color: rgba(255,248,237,0.78);
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-weight: 400;
-      margin-top: 0;
-    }
-
-    h1 {
-      margin-bottom: 0;
-      font-size: clamp(3.8rem, 8.4vw, 9rem);
-      line-height: 0.95;
-    }
-
-    .hero-subtitle {
-      margin-top: 18px;
-      color: rgba(255,248,237,0.82);
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-style: italic;
-      font-size: clamp(1rem, 1.6vw, 1.45rem);
-    }
-
-    .bio-panel {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(48px, 6vw, 90px);
-      background:
-        linear-gradient(rgba(255,248,240,0.18), rgba(255,248,240,0.18)),
-        url("assets/woodtexture.png");
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: soft-light;
-      box-shadow:
-        inset 0 14px 24px rgba(255,255,255,0.16),
-        inset 0 -20px 28px rgba(50,30,22,0.14);
-    }
-
- .bio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(36px, 6vw, 96px);
-  align-items: start;
-  position: relative;
-  z-index: 1;
-}
-
-.bio-person {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 58px);
-  align-items: start;
-}
-
-.bio-person:first-child {
-  transform: translateX(-7%);
-}
-
-.bio-person:first-child .portrait-frame {
-  width: clamp(360px, 34vw, 560px);
-  aspect-ratio: 0.9;
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-}
-
-.bio-person:first-child .portrait-frame img {
-  object-position: 70% center;
-  transform: scale(1.06);
-}
-
-.bio-person:last-child {
-  margin-top: clamp(128px, 13vw, 220px);
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
-}
-
-.bio-person:last-child .portrait-frame {
-  grid-column: 2;
-  grid-row: 1;
-  width: clamp(420px, 38vw, 620px);
-  aspect-ratio: 1.28;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.bio-person:last-child .portrait-frame img {
-  object-position: center 22%;
-  transform: scale(0.88);
-}
-
-.bio-person:last-child .bio-copy {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.portrait-frame {
-  overflow: hidden;
-  border: 1px solid rgba(27,22,20,0.34);
-  box-shadow:
-    inset 8px 8px 0 rgba(27,22,20,0.34),
-    inset -7px -7px 0 rgba(243,232,213,0.18),
-    0 0 0 1px rgba(243,232,213,0.1);
-}
-
-.portrait-frame img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.12) sepia(0.12) contrast(1.08);
-}
-
-.bio-copy h3 {
-  margin-bottom: 18px;
-
-  color: #fff7ec;
-
-  font-size: clamp(2rem, 3vw, 3rem);
-  line-height: 1.06;
-
-  border-bottom: 1px solid rgba(255,248,236,0.28);
-  padding-bottom: 10px;
-
-  text-shadow:
-    0 2px 4px rgba(0,0,0,0.65),
-    0 0 1px rgba(0,0,0,0.85);
-}
-
-.bio-copy p {
-  color: rgba(255,244,228,0.96);
-
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
-  line-height: 1.72;
-
-  text-shadow:
-    0 2px 3px rgba(0,0,0,0.6),
-    0 0 1px rgba(0,0,0,0.82);
-}
-
-.bio-copy cite {
-  color: #ffe1b8;
-}
- .services-panel {
-  width: 100%;
-
-  background-image:
-    linear-gradient(rgba(255,248,240,0.10), rgba(255,248,240,0.10)),
-    url("assets/stonedesigntext.png");
-
-  background-size: contain;
-  background-position: top center;
-  background-repeat: no-repeat;
-
-  aspect-ratio: 16 / 9;
-
-  box-shadow:
-    inset 0 18px 24px rgba(255,255,255,0.18),
-    inset 0 -22px 28px rgba(60,38,28,0.16);
-}
-
-    @keyframes imageDissolve {
-  0% {
-    filter: brightness(1) contrast(1.08) saturate(1);
-    transform: scale(1.01);
-  }
-
-  100% {
-    filter: brightness(0.66) contrast(1.04) saturate(0.92);
-    transform: scale(1.045);
-  }
-}
-
-@keyframes veilIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes titleReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-    @media (max-width: 900px) {
-      .site-header {
-        height: auto;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        gap: 12px;
-        padding: 18px;
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="SKRIP DOX script consultation and development support from Moira Lang and Michiko Yamamoto."
+    >
+    <title>SKRIP DOX | Script Consultation</title>
+    <style>
+      :root {
+        --ink: #151217;
+        --wine: #4a1f2d;
+        --plum: #241c25;
+        --ivory: #f5efe6;
+        --paper: #fffaf3;
+        --bone: #ded2c3;
+        --smoke: #6f6770;
+        --citron: #b7a56a;
+        --rose: #d8cbc6;
+        --blue: #b8c0be;
+        --clay: #c8b3a5;
+        --line: rgba(20, 17, 22, 0.18);
       }
 
-      .nav-logo {
-        grid-column: auto;
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(20, 17, 22, 0.04) 1px, transparent 1px),
+          linear-gradient(rgba(20, 17, 22, 0.035) 1px, transparent 1px),
+          var(--ivory);
+        background-size: 52px 52px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(100%, 1540px);
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 22px;
+        padding: 18px clamp(18px, 4vw, 58px);
+        background: rgba(246, 239, 227, 0.84);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.35rem, 2.2vw, 2rem);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .brand-mark {
+        width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        background: var(--citron);
+        box-shadow: 0 0 0 7px rgba(183, 165, 106, 0.18);
       }
 
       .nav {
-        grid-column: auto;
-        justify-self: center;
-        flex-wrap: wrap;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: clamp(14px, 2.5vw, 34px);
+        font-size: 0.76rem;
+        font-weight: 820;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .hero-panel {
-        min-height: 78vh;
+      .nav a {
+        color: var(--smoke);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 4px;
+      }
+
+      .nav a:hover {
+        color: var(--wine);
+        border-color: var(--wine);
+      }
+
+      .hero {
+        min-height: calc(100vh - 76px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.04fr) minmax(280px, 0.46fr);
+        gap: clamp(34px, 6vw, 86px);
+        align-items: stretch;
+        padding: clamp(46px, 6vw, 84px) clamp(18px, 5vw, 72px) clamp(38px, 5vw, 68px);
+      }
+
+      .hero-main {
+        display: grid;
+        align-content: space-between;
+        min-height: 72vh;
+        padding: clamp(28px, 5vw, 58px);
+        background: var(--paper);
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-main::before {
+        content: "";
+        position: absolute;
+        inset: auto -8% -26% auto;
+        width: clamp(300px, 42vw, 720px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(74, 31, 45, 0.14), transparent 64%);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--wine);
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: -0.025em;
+      }
+
+      h1 {
+        position: relative;
+        z-index: 1;
+        max-width: 1040px;
+        margin: 0;
+        font-size: clamp(5.6rem, 13vw, 15rem);
+        font-weight: 900;
+        line-height: 0.72;
+        text-transform: uppercase;
+      }
+
+      .hero-bottom {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 0.62fr) minmax(240px, 0.38fr);
+        gap: clamp(20px, 4vw, 54px);
+        align-items: end;
+        margin-top: 42px;
+      }
+
+      .hero-subtitle {
+        display: inline;
+        padding: 0 7px 5px;
+        background: var(--citron);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.55rem, 3.3vw, 3.15rem);
+        font-weight: 900;
+        line-height: 1.14;
+      }
+
+      .hero-copy {
+        margin: 0;
+        color: var(--smoke);
+        font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+        max-width: 520px;
+      }
+
+      .hero-side {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 18px;
+      }
+
+      .studio-card {
+        padding: clamp(22px, 3vw, 34px);
+        background: var(--plum);
+        color: var(--paper);
+        min-height: 270px;
+        display: grid;
+        align-content: space-between;
+      }
+
+      .studio-card p {
+        color: rgba(255, 250, 241, 0.74);
+        margin-bottom: 0;
+      }
+
+      .studio-card strong {
+        display: block;
+        margin-bottom: 18px;
+        color: var(--citron);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.6rem, 3vw, 2.7rem);
+        line-height: 0.96;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        width: fit-content;
+        padding: 13px 20px;
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        background: var(--ink);
+        color: var(--paper);
+        font-size: 0.88rem;
+        font-weight: 850;
+        text-decoration: none;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: var(--wine);
+      }
+
+      .button-light {
+        background: var(--citron);
+        color: var(--ink);
+      }
+
+      .index-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-top: 1px solid rgba(255, 250, 241, 0.25);
+        color: rgba(255, 250, 241, 0.65);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .index-strip span {
+        padding-top: 14px;
+      }
+
+      .quote-card {
+        min-height: 260px;
+        padding: clamp(22px, 3vw, 34px);
+        background: var(--rose);
+        display: grid;
+        align-content: end;
+        color: var(--ink);
+      }
+
+      .quote-card p {
+        margin-bottom: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.35rem, 2.7vw, 2.35rem);
+        font-weight: 900;
+        line-height: 1.02;
+      }
+
+      .band {
+        padding: clamp(72px, 9vw, 132px) clamp(18px, 5vw, 72px);
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(160px, 0.22fr) minmax(0, 0.78fr);
+        gap: clamp(24px, 5vw, 72px);
+        align-items: start;
+        margin-bottom: clamp(36px, 5vw, 72px);
+      }
+
+      h2 {
+        margin: 0;
+        color: #5e5867;
+        font-size: clamp(3rem, 6vw, 7rem);
+        font-weight: 900;
+        line-height: 0.9;
+      }
+
+      .services {
+        background: linear-gradient(180deg, var(--ivory), #ebe2d6);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: clamp(14px, 2vw, 24px);
+      }
+
+      .service-card {
+        min-height: 360px;
+        padding: clamp(20px, 2.5vw, 32px);
+        display: grid;
+        align-content: space-between;
+        border: 1px solid rgba(20, 17, 22, 0.26);
+        background: var(--paper);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::after {
+        content: "";
+        position: absolute;
+        inset: auto 18px 18px auto;
+        width: 68px;
+        height: 10px;
+        background: var(--citron);
+      }
+
+      .service-card.primary-service {
+        grid-column: span 7;
+        min-height: 430px;
+        background: var(--paper);
+      }
+
+      .service-card.support-service {
+        min-height: 270px;
+        background: #eee6dc;
+      }
+
+      .service-card.support-service:nth-child(2) {
+        grid-column: span 5;
+        background: #e8ded4;
+      }
+
+      .service-card.support-service:nth-child(3) {
+        grid-column: 2 / span 5;
+        background: #ddd6cc;
+      }
+
+      .service-card.support-service:nth-child(4) {
+        grid-column: span 6;
+        background: #e4d8cf;
+      }
+
+      .service-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      .card-number {
+        font-family: Georgia, "Times New Roman", serif;
+        color: rgba(21, 18, 23, 0.64);
+        font-size: clamp(2rem, 4vw, 4.4rem);
+        font-weight: 900;
+        line-height: 0.8;
+      }
+
+      .service-label {
+        max-width: 180px;
+        margin: 0;
+        font-size: 0.76rem;
+        font-weight: 920;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .service-card h3 {
+        margin: clamp(44px, 5vw, 70px) 0 12px;
+        font-size: clamp(2.35rem, 4.8vw, 5rem);
+        font-weight: 900;
+        line-height: 0.86;
+      }
+
+      .support-service h3 {
+        font-size: clamp(2rem, 3.2vw, 3.8rem);
+      }
+
+      .service-card p:last-child {
+        max-width: 620px;
+        margin-bottom: 0;
+        color: rgba(20, 17, 22, 0.72);
+        font-size: clamp(1rem, 1.4vw, 1.16rem);
+        font-weight: 720;
+      }
+
+      .bio {
+        background: var(--paper);
       }
 
       .bio-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(18px, 3vw, 34px);
       }
 
-      .bio-person,
-      .bio-person:last-child {
-        grid-template-columns: 1fr;
-        margin-top: 0;
-        padding-top: 24px;
+      .bio-card {
+        display: grid;
+        grid-template-rows: minmax(260px, 34vh) auto;
+        border: 1px solid var(--line);
+        background: var(--ivory);
+        overflow: hidden;
       }
 
-      .bio-person:last-child .portrait-frame,
-      .bio-person:last-child .bio-copy {
-        grid-column: auto;
-        grid-row: auto;
+      .bio-portrait {
+        min-height: 260px;
+        background-color: var(--blue);
+        background-position: center;
+        background-size: cover;
+        filter: grayscale(0.18) saturate(0.88);
       }
 
-      .portrait-frame {
-        width: min(100%, 320px);
+      .moira-portrait {
+        background-image: linear-gradient(135deg, rgba(86, 31, 49, 0.16), rgba(216, 162, 168, 0.18)), url("assets/MOIRAPIC.jpeg");
       }
 
-      .services-panel {
-        min-height: 70vh;
-        background-position: center top;
+      .michiko-portrait {
+        background-image: linear-gradient(135deg, rgba(86, 31, 49, 0.14), rgba(157, 186, 197, 0.24)), url("assets/IMG_6304.JPG");
       }
-    }
-  </style>
-</head>
 
-<body>
-  <header class="site-header" aria-label="Site header">
-    <a href="#home" class="nav-logo" aria-label="Skrip Dox — home">
-      <img src="assets/SDtrans.png" alt="Skrip Dox logo">
-    </a>
+      .bio-content {
+        padding: clamp(24px, 3vw, 38px);
+      }
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#bio">Bio</a>
-      <a href="#services">Services</a>
-    </nav>
-  </header>
+      .bio-card h3 {
+        margin-bottom: 16px;
+        font-size: clamp(2.8rem, 5vw, 5.8rem);
+        line-height: 0.88;
+      }
 
-  <main>
-    <section class="panel hero-panel" id="home" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <p class="eyebrow">Script consultation studio</p>
-        <h1 id="hero-title">SKRIPDOX</h1>
-        <p class="hero-subtitle">Diagnosis. Options. eXecution.</p>
-      </div>
-    </section>
+      .bio-lede {
+        color: var(--wine);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.25rem, 2vw, 1.9rem);
+        font-weight: 900;
+        line-height: 1.12;
+      }
 
-    <section class="panel bio-panel" id="bio" aria-label="Moira Lang and Michiko Yamamoto biographies">
-      <div class="bio-grid">
-        <article class="bio-person">
-          <figure class="portrait-frame">
-            <img src="assets/MOIRAPIC.jpeg" alt="Moira Lang">
-          </figure>
+      .bio-card p {
+        color: rgba(20, 17, 22, 0.75);
+      }
 
-          <div class="bio-copy">
-            <h3>Moira Lang</h3>
+      cite {
+        color: var(--ink);
+        font-style: italic;
+      }
 
-            <p>
-              Moira Lang grew out of equal parts commercial instinct, queer spunk and ache, class
-              friction, and a long, intimate education in Philippine cinema.
-            </p>
+      .contact {
+        background: var(--plum);
+        color: var(--paper);
+      }
 
-            <p>
-              She has co-written films that made many cry over a nation of mothers separated from
-              their children (<cite>Anak</cite>), see themselves and their conflicted families
-              (<cite>Tanging Yaman</cite>), flirt with hunger and longing
-              (<cite>Kailangan Kita</cite>), and turn OFW heartbreak into aching romance
-              (<cite>Milan</cite>).
-            </p>
+      .contact-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) auto;
+        gap: clamp(24px, 5vw, 76px);
+        align-items: end;
+        padding: clamp(28px, 5vw, 58px);
+        border: 1px solid rgba(246, 239, 227, 0.28);
+      }
 
-            <p>
-              As a producer she kept pushing: <cite>Ang Pagdadalaga ni Maximo Oliveros</cite>,
-              <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>,
-              <cite>Norte, Hangganan ng Kasaysayan</cite>, <cite>Patay na si Hesus</cite>, and
-              <cite>Manila's Finest</cite>.
-            </p>
+      .contact-panel h2 {
+        color: var(--paper);
+      }
 
-            <p>
-              Her filmography moves between the mainstream and the margins without settling
-              comfortably in either.
+      .contact-panel p {
+        max-width: 720px;
+        color: rgba(246, 239, 227, 0.72);
+      }
+
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 24px clamp(18px, 5vw, 72px);
+        background: var(--ink);
+        color: rgba(246, 239, 227, 0.72);
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
+      .site-footer a {
+        color: var(--paper);
+        text-decoration: none;
+      }
+
+      @media (max-width: 1050px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-main {
+          min-height: 64vh;
+        }
+
+        .hero-bottom,
+        .section-heading,
+        .contact-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .service-card.primary-service,
+        .service-card.support-service,
+        .service-card.support-service:nth-child(2),
+        .service-card.support-service:nth-child(3),
+        .service-card.support-service:nth-child(4) {
+          grid-column: span 6;
+        }
+
+        .bio-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .site-header {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .hero,
+        .band {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .hero-main {
+          padding: 24px;
+        }
+
+        h1 {
+          font-size: clamp(4.6rem, 24vw, 7rem);
+        }
+
+        h2 {
+          font-size: clamp(2.7rem, 14vw, 4.2rem);
+        }
+
+        .service-card.primary-service,
+        .service-card.support-service,
+        .service-card.support-service:nth-child(2),
+        .service-card.support-service:nth-child(3),
+        .service-card.support-service:nth-child(4) {
+          grid-column: 1 / -1;
+          min-height: 300px;
+        }
+
+        .service-card h3 {
+          font-size: clamp(2.55rem, 15vw, 4rem);
+        }
+
+        .site-footer {
+          display: grid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Site header">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        SKRIP DOX
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#bio">Bio</a>
+        <a href="#contact">Email</a>
+      </nav>
+    </header>
+
+    <main id="top" class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-main">
+          <div>
+            <p class="eyebrow">Script consultation studio</p>
+            <h1 id="hero-title">SKRIP DOX</h1>
+          </div>
+
+          <div class="hero-bottom">
+            <p class="hero-subtitle">Diagnosis. Options. Execution.</p>
+            <p class="hero-copy">
+              Per-project screenplay consultation for producers and creative teams who want a sharper,
+              more production-ready draft before the cameras roll.
             </p>
           </div>
-        </article>
+        </div>
 
-        <article class="bio-person">
-          <figure class="portrait-frame">
-            <img src="assets/IMG_6304.JPG" alt="Michiko Yamamoto">
-          </figure>
+        <aside class="hero-side" aria-label="Studio summary">
+          <div class="studio-card">
+            <div>
+              <p class="eyebrow">For producers and creative teams</p>
+              <strong>A private room for the draft before production.</strong>
+              <p>
+                We read for structure, pressure, character logic, emotional truth, and what the next
+                rewrite is really asking for.
+              </p>
+            </div>
+            <div class="index-strip" aria-hidden="true">
+              <span>Read</span>
+              <span>Talk</span>
+              <span>Rewrite</span>
+            </div>
+          </div>
 
-          <div class="bio-copy">
-            <h3>Michiko Yamamoto</h3>
+          <div class="quote-card">
+            <p>Not coverage. A serious conversation before production begins.</p>
+          </div>
 
+          <a class="button button-light" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry">
+            Email for the rate card
+          </a>
+        </aside>
+      </section>
+
+      <section class="services band" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <p class="eyebrow">Services offered</p>
+          <h2 id="services-title">One project. One rigorous pass before production.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card primary-service">
+            <div class="service-top">
+              <p class="service-label">Per-project basis</p>
+              <span class="card-number">Project</span>
+            </div>
+            <div>
+              <h3>Screenplay Polish Before Production</h3>
+              <p>
+                Offered to producers, directors, writers, and creative teams who care to perfect and
+                polish the screenplay before starting production.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card support-service">
+            <div class="service-top">
+              <p class="service-label">Who it is for</p>
+              <span class="card-number">01</span>
+            </div>
+            <div>
+              <h3>Producers and creatives</h3>
+              <p>For teams preparing a screenplay for production and needing a focused outside read.</p>
+            </div>
+          </article>
+
+          <article class="service-card support-service">
+            <div class="service-top">
+              <p class="service-label">What we examine</p>
+              <span class="card-number">02</span>
+            </div>
+            <div>
+              <h3>Structure and pressure</h3>
+              <p>Character logic, emotional truth, tone, stakes, scenes, rhythm, and production readiness.</p>
+            </div>
+          </article>
+
+          <article class="service-card support-service">
+            <div class="service-top">
+              <p class="service-label">Rates</p>
+              <span class="card-number">03</span>
+            </div>
+            <div>
+              <h3>Email for the rate card</h3>
+              <p>Send your project format, page count, draft stage, and ideal timeline.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bio band" id="bio" aria-labelledby="bio-title">
+        <div class="section-heading">
+          <p class="eyebrow">Bio</p>
+          <h2 id="bio-title">Two filmographies. One serious relationship with story.</h2>
+        </div>
+
+        <div class="bio-grid">
+          <article class="bio-card">
+            <div class="bio-portrait moira-portrait" role="img" aria-label="Moira Lang"></div>
+            <div class="bio-content">
+              <h3>Moira Lang</h3>
+              <p class="bio-lede">
+                Commercial instinct, queer spunk and ache, class friction, and years inside Philippine cinema.
+              </p>
+              <p>
+                Moira Lang grew out of equal parts commercial instinct, queer spunk and ache, class
+                friction, and a long, intimate education in Philippine cinema. She has co-written
+                films that made many cry over a nation of mothers separated from their children
+                (<cite>Anak</cite>), see themselves and their conflicted families (<cite>Tanging
+                Yaman</cite>), flirt with hunger and longing (<cite>Kailangan Kita</cite>), and turn
+                OFW heartbreak into aching romance (<cite>Milan</cite>).
+              </p>
+              <p>
+                As a producer she kept pushing: <cite>Ang Pagdadalaga ni Maximo Oliveros</cite>,
+                <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>,
+                <cite>Norte, Hangganan ng Kasaysayan</cite>, <cite>Patay na si Hesus</cite>, and
+                <cite>Manila's Finest</cite>.
+              </p>
+              <p>
+                Her filmography moves between the mainstream and the margins without settling
+                comfortably in either. It has started conversations, won awards, offended, and made
+                audiences laugh, sob, and question what they were raised to believe.
+              </p>
+            </div>
+          </article>
+
+          <article class="bio-card">
+            <div class="bio-portrait michiko-portrait" role="img" aria-label="Michiko Yamamoto"></div>
+            <div class="bio-content">
+              <h3>Michiko Yamamoto</h3>
+              <p class="bio-lede">
+                Emotional precision, distrust of sentimentality, and a deep belief in tenderness.
+              </p>
+              <p>
+                Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
+                A mathematics graduate who found her way into cinema through instinct, observation,
+                and emotional precision, she has spent the last two decades writing some of the most
+                quietly devastating films in Philippine cinema.
+              </p>
+              <p>
+                Her work includes <cite>Magnifico</cite>, <cite>Ang Pagdadalaga ni Maximo
+                Oliveros</cite>, <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>,
+                <cite>On the Job</cite>, <cite>Honor Thy Father</cite>, and <cite>Manila's Finest</cite>.
+              </p>
+              <p>
+                Her filmography moves between intimacy and violence without announcing the shift. She
+                writes ordinary people cornered by systems larger than themselves: families, churches,
+                governments, masculinity, poverty, history.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact band" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Email us for the rate card</p>
+            <h2 id="contact-title">Tell us about your script.</h2>
             <p>
-              Michiko Yamamoto writes like she distrusts sentimentality and believes in tenderness.
-            </p>
-
-            <p>
-              A mathematics graduate who found her way into cinema through instinct, observation,
-              and emotional precision, she has spent the last two decades writing some of the most
-              quietly devastating films in Philippine cinema.
-            </p>
-
-            <p>
-              Her work includes <cite>Magnifico</cite>, <cite>Ang Pagdadalaga ni Maximo
-              Oliveros</cite>, <cite>Zombadings 1: Patayin sa Shokot si Remington!</cite>,
-              <cite>On the Job</cite>, <cite>Honor Thy Father</cite>, and <cite>Manila's Finest</cite>.
-            </p>
-
-            <p>
-              Her filmography moves between intimacy and violence without announcing the shift. She
-              writes ordinary people cornered by systems larger than themselves.
+              Send a short note about your project, where you are in the draft, and when you plan to
+              move toward production.
             </p>
           </div>
-        </article>
-      </div>
-    </section>
+          <a class="button button-light" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry&body=Hello%2C%0A%0AI%27d%20like%20to%20ask%20about%20script%20consultation.%0A%0AProject%20format%3A%0APage%20count%3A%0ADraft%20stage%3A%0ATimeline%3A%0AWhat%20I%27m%20looking%20for%3A%0A">
+            Email SKRIP DOX
+          </a>
+        </div>
+      </section>
+    </main>
 
-    <section class="panel services-panel" id="services" aria-label="Skrip Dox services"></section>
-  </main>
-
-  <script>
-  document.querySelector(".nav-logo").addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const hero = document.querySelector(".hero-panel");
-    const content = document.querySelector(".hero-content");
-
-    hero.classList.remove("replay");
-    content.classList.remove("replay");
-
-    void hero.offsetWidth;
-
-    hero.classList.add("replay");
-    content.classList.add("replay");
-
-    document.querySelector("#home").scrollIntoView({ behavior: "smooth" });
-  });
-</script>
-</body>
+    <footer class="site-footer">
+      <p>SKRIP DOX by Moira Lang + Michiko Yamamoto</p>
+      <a href="mailto:hello@yourscriptstudio.com">hello@yourscriptstudio.com</a>
+    </footer>
+  </body>
 </html>
