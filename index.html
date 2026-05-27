@@ -522,7 +522,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(27, 22, 20, 0.42);
+        background: rgba(27, 22, 20, 0.62);
         pointer-events: none;
         z-index: 0;
       }
@@ -576,7 +576,7 @@
   position: absolute;
   max-width: 320px;
   padding: 22px 24px;
-  background: rgba(27, 22, 20, 0.72);
+   background: rgba(27, 22, 20, 0.84);
   border: 1px solid rgba(239, 226, 206, 0.22);
   backdrop-filter: blur(6px);
 }
@@ -609,13 +609,14 @@
 }
 
 .services-niche {
-  position: relative;
-  z-index: 1;
-  padding: 0 clamp(40px, 6vw, 90px) clamp(50px, 6vw, 90px);
+  margin-top: 0;
+  padding-top: 20px;
+  align-items: start;
 }
 
-.services-niche-img {
-  display: none;
+.services-niche-img img {
+  height: clamp(320px, 36vw, 520px);
+  object-position: center top;
 }
 
       /* The "photo niche" — where the image lives, like a built-in FLW niche */
@@ -838,6 +839,17 @@
           padding: 22px 0;
         }
 
+        .flr-room {
+  background: rgba(27, 22, 20, 0.78);
+
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.06),
+    inset -1px -1px 0 rgba(0,0,0,0.28),
+    0 10px 30px rgba(0,0,0,0.22);
+
+  border: 1px solid rgba(239,226,206,0.12);
+}
+
         .flr-room:last-child {
           border-bottom: none;
         }
@@ -851,6 +863,29 @@
           padding-right: 0;
           margin-bottom: 22px;
         }
+
+        .flr-room h3 {
+  color: #f3e8d5;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.08),
+    0 2px 2px rgba(0,0,0,0.45),
+    0 0 12px rgba(0,0,0,0.28);
+}
+
+.flr-room p {
+  color: #ddd0bc;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.04),
+    0 1px 3px rgba(0,0,0,0.52);
+}
+
+.flr-room .eyebrow {
+  color: #efe2ce;
+  letter-spacing: 0.12em;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.06),
+    0 1px 2px rgba(0,0,0,0.45);
+}
       }
     </style>
   </head>
@@ -951,7 +986,7 @@
         <!-- Cantilever band: eyebrow + headline + prairie line -->
         <div class="services-cantilever">
           <div class="services-cornerstone">
-            <p class="eyebrow">Services</p>
+            
             <h2 id="services-title">For producers and creative teams who care to polish the story before production.</h2>
           </div>
           <div class="services-prairie-line" aria-hidden="true"></div>
