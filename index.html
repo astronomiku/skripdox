@@ -512,260 +512,257 @@
         padding-bottom: 8px;
       }
 
-      /* ─── SECTION 3: SERVICES — Frank Lloyd Wright organic block architecture ─── */
+     /* ─────────────────────────────────────────────
+   SECTION 3 — ORGANIC ARCHITECTURAL SERVICES
+───────────────────────────────────────────── */
 
-      .services-panel {
-        display: block;
-        background: url("assets/block.png") center / cover;
-        position: relative;
-        overflow: hidden;
-        padding: 0;
-        min-height: auto;
-      }
+.services-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background:
+    linear-gradient(rgba(239,226,206,0.08), rgba(239,226,206,0.08)),
+    url("assets/block.png");
 
-      /* Subtle dark scrim so text stays legible — no color wash */
-      .services-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(27, 22, 20, 0.62);
-        pointer-events: none;
-        z-index: 0;
-      }
+  background-size: cover;
+  background-position: center;
+}
 
-      /* The FLW "cantilever" horizontal band that anchors the whole section */
-      .services-cantilever {
-        position: relative;
-        z-index: 1;
-        padding: clamp(32px, 5vw, 64px) clamp(32px, 6vw, 88px) 0;
-        display: flex;
-        align-items: flex-end;
-        gap: clamp(24px, 5vw, 72px);
-        border-bottom: 3px solid rgba(183, 170, 148, 0.22);
-      }
+/* REMOVE DARK OVERLAY */
+.services-panel::before {
+  display: none;
+}
 
-      /* The eyebrow + headline block — like a cornerstone */
-      .services-cornerstone {
-        flex: 0 0 auto;
-        max-width: 560px;
-      }
+/* HEADER AREA */
 
-      .services-cornerstone .eyebrow {
-        color: var(--plaster);
-        margin-bottom: 10px;
-      }
+.services-cantilever {
+  position: relative;
+  z-index: 2;
 
-      .services-cornerstone h2 {
-        color: var(--paper);
-        font-size: clamp(1.9rem, 3.5vw, 4rem);
-        line-height: 1.04;
-        margin: 0;
-      }
+  padding:
+    clamp(52px, 7vw, 94px)
+    clamp(38px, 6vw, 96px)
+    0;
 
-      /* Horizontal ruled accent line — FLW's "prairie line" */
-      .services-prairie-line {
-        flex: 1;
-        height: 3px;
-        background: linear-gradient(to right, rgba(183, 170, 148, 0.5), transparent);
-        margin-bottom: 14px;
-        min-width: 40px;
-      }
+  max-width: 880px;
+}
+
+.services-cornerstone h2 {
+  margin: 0;
+
+  color: #2d2019;
+
+  font-size: clamp(2.1rem, 4vw, 4.5rem);
+  line-height: 1.03;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.45),
+    0 -1px 0 rgba(90,60,40,0.16);
+}
+
+.services-prairie-line {
+  display: none;
+}
+
+/* ORGANIC TEXT LAYOUT */
 
 .services-floorplan {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+
   min-height: 760px;
-  padding: 0;
 }
+
+/* TEXT BLOCKS */
 
 .flr-room {
   position: absolute;
-  max-width: 300px;
-  padding: 0;
+
   background: transparent;
   border: 0;
   box-shadow: none;
-  backdrop-filter: none;
+  padding: 0;
+
+  max-width: 290px;
 }
+
+/* TOP LEFT VOID */
 
 .flr-room:nth-child(1) {
-  top: 13%;
-  left: 8%;
+  top: 12%;
+  left: 7%;
 }
+
+/* UPPER MIDDLE VOID */
 
 .flr-room:nth-child(2) {
-  top: 36%;
-  right: 9%;
+  top: 20%;
+  left: 42%;
 }
+
+/* LOWER CENTER VOID */
 
 .flr-room:nth-child(3) {
-  bottom: 14%;
-  left: 34%;
+  top: 56%;
+  left: 24%;
+  max-width: 330px;
 }
 
-.flr-room .eyebrow,
-.flr-room h3,
-.flr-room p {
-  color: #efe2ce;
+/* TYPOGRAPHY */
+
+.flr-room .eyebrow {
+  margin-bottom: 12px;
+
+  color: #52362a;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
   text-shadow:
-    0 1px 0 rgba(255,255,255,0.16),
-    0 -1px 0 rgba(0,0,0,0.65),
-    2px 2px 6px rgba(0,0,0,0.5);
+    0 1px 0 rgba(255,255,255,0.44),
+    0 -1px 0 rgba(60,40,30,0.18);
 }
 
 .flr-room h3 {
-  font-size: clamp(1.45rem, 2vw, 2.35rem);
+  margin-bottom: 12px;
+
+  color: #241813;
+
+  font-size: clamp(1.4rem, 2vw, 2.1rem);
   line-height: 1.08;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.5),
+    0 -1px 0 rgba(80,50,40,0.16);
 }
 
 .flr-room p {
-  color: #d9cbb5;
+  color: #3c2b23;
+
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.62;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.35),
+    0 -1px 0 rgba(80,50,40,0.08);
 }
 
+/* LOWER IMAGE AREA */
+
 .services-niche {
-  margin-top: 0;
-  padding-top: 20px;
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+
+  gap: clamp(28px, 5vw, 76px);
+
   align-items: start;
+
+  padding:
+    0
+    clamp(38px, 6vw, 96px)
+    clamp(58px, 7vw, 96px);
+}
+
+.services-tagline {
+  padding-top: 24px;
+}
+
+.services-tagline p {
+  color: #3c2b23;
+
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+
+  font-size: clamp(1rem, 1.4vw, 1.28rem);
+  line-height: 1.68;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.32),
+    0 -1px 0 rgba(90,60,40,0.08);
+}
+
+/* IMAGE FRAME */
+
+.services-niche-img {
+  overflow: hidden;
+
+  clip-path:
+    polygon(
+      0 6%,
+      14% 0,
+      100% 0,
+      100% 92%,
+      86% 100%,
+      0 100%
+    );
+
+  box-shadow:
+    8px 8px 0 rgba(27,22,20,0.18),
+    -4px -4px 0 rgba(255,255,255,0.18);
 }
 
 .services-niche-img img {
-  height: clamp(320px, 36vw, 520px);
+  display: block;
+
+  width: 100%;
+  height: clamp(340px, 38vw, 560px);
+
+  object-fit: cover;
   object-position: center top;
+
+  filter:
+    saturate(0.92)
+    sepia(0.06)
+    contrast(1.03);
 }
 
-      /* The "photo niche" — where the image lives, like a built-in FLW niche */
-      .services-niche {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 0;
-        padding: 0 clamp(32px, 6vw, 88px) clamp(40px, 6vw, 80px);
-        align-items: end;
-        margin-top: clamp(22px, 3vw, 40px);
-      }
+/* REMOVE OLD UNUSED STUFF */
 
-      .services-tagline {
-        padding-right: clamp(24px, 4vw, 56px);
-        padding-bottom: 8px;
-      }
+.services-intro,
+.service-highlights {
+  display: none !important;
+}
 
-      .services-tagline p {
-        color: var(--parchment);
-        font-family: "Libre Baskerville", Georgia, serif;
-        font-style: italic;
-        font-size: clamp(1rem, 1.5vw, 1.35rem);
-        line-height: 1.6;
-        margin-bottom: clamp(18px, 2.5vw, 32px);
-      }
+/* MOBILE */
 
-      /* Image in an organic frame — FLW's hexagonal/angular cutouts */
-      .services-niche-img {
-        position: relative;
-        overflow: hidden;
-        clip-path: polygon(0 6%, 14% 0, 100% 0, 100% 92%, 86% 100%, 0 100%);
-        background: var(--walnut);
-        box-shadow:
-          8px 8px 0 rgba(27, 22, 20, 0.38),
-          -4px -4px 0 rgba(183, 170, 148, 0.14);
-      }
+@media (max-width: 900px) {
 
-      .services-niche-img img {
-        display: block;
-        width: 100%;
-        height: clamp(200px, 26vw, 360px);
-        object-fit: cover;
-        filter: saturate(0.85) sepia(0.12) contrast(1.06);
-      }
+  .services-cantilever {
+    padding: 42px 22px 0;
+  }
 
-      /* No overlay on image */
+  .services-floorplan {
+    display: grid;
+    gap: 42px;
 
-      /* Override old services-intro and service-highlights — hide them */
-      .services-intro,
-      .service-highlights {
-        display: none !important;
-      }
+    min-height: auto;
 
-      
+    padding: 42px 22px;
+  }
 
-      .services-intro {
-        display: grid;
-        align-content: space-between;
-        background: var(--paper);
-        backdrop-filter: blur(12px);
-        border-radius: 0 140px 42px 0;
-        clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
-      }
+  .flr-room {
+    position: static;
+    max-width: none;
+  }
 
-      .service-photo {
-        align-self: end;
-        margin: clamp(22px, 3vw, 38px) 0 0;
-        border: 0;
-        background: var(--walnut);
-        box-shadow: 14px 14px 0 rgba(31, 45, 52, 0.24);
-        border-radius: 62% 38% 44% 56% / 38% 58% 42% 62%;
-        overflow: hidden;
-      }
+  .services-niche {
+    grid-template-columns: 1fr;
 
-      .service-photo img {
-        display: block;
-        width: 100%;
-        height: clamp(180px, 24vw, 320px);
-        object-fit: cover;
-        filter: saturate(0.9) contrast(1.04);
-      }
+    padding:
+      0
+      22px
+      42px;
+  }
 
-      .service-highlights {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        gap: clamp(12px, 2vw, 22px);
-        background: transparent;
-        backdrop-filter: none;
-        box-shadow: none;
-      }
-
-      .highlight {
-        display: grid;
-        align-content: space-between;
-        min-height: 0;
-        padding: clamp(18px, 2.4vw, 28px);
-        background: var(--cream);
-        border: 0;
-        border-left: 0;
-        border-radius: 82px 0 74px 0;
-      }
-
-      .highlight:nth-child(2) {
-        background: var(--sage);
-        color: var(--paper);
-        border-radius: 0 78px 0 68px;
-      }
-
-      .highlight:nth-child(3) {
-        background: var(--deep-blue);
-        color: var(--paper);
-        border-radius: 88px 0 0 76px;
-      }
-
-      .highlight h3 {
-        font-size: clamp(1.35rem, 2vw, 2.1rem);
-      }
-
-      .highlight p {
-        margin-bottom: 0;
-      }
-
-      .service-highlights .button {
-        margin-top: 18px;
-      }
-
-      .service-highlights p,
-      .services-intro p {
-        max-width: 680px;
-        color: var(--smoke);
-        font-size: clamp(1rem, 1.35vw, 1.2rem);
-      }
-
+  .services-tagline {
+    padding-top: 0;
+  }
+}
       .button {
         display: inline-flex;
         align-items: center;
