@@ -226,26 +226,25 @@
 
     .bio-person {
       display: grid;
-      grid-template-columns: minmax(120px, 0.42fr) minmax(0, 0.58fr);
+        grid-template-columns: minmax(120px, 0.34fr) minmax(0, 0.66fr);
       gap: clamp(18px, 3vw, 34px);
       align-items: start;
     }
 
 .bio-person:first-child .portrait-frame {
+  aspect-ratio: 0.9;
+
   clip-path: polygon(
-    24% 0,
+    0 0,
     100% 0,
-    100% 100%,
-    0 100%
+    100% 100%
   );
 }
 
 .bio-person:first-child .portrait-frame img {
   object-position: 58% center;
-  transform: scale(1.04);
+  transform: scale(1.08);
 }
-}
-
     .bio-person:last-child {
       margin-top: clamp(128px, 13vw, 220px);
       grid-template-columns: minmax(0, 0.58fr) minmax(120px, 0.42fr);
