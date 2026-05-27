@@ -80,13 +80,14 @@
         z-index: 30;
       }
 
-      .nav-logo img {
-        height: clamp(64px, 8vw, 108px);
-        width: auto;
-        object-fit: contain;
-        mix-blend-mode: multiply;
-        transition: transform 0.24s ease;
-      }
+     .nav-logo img {
+  height: clamp(64px, 8vw, 108px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+  transition: transform 0.24s ease;
+}
 
       .nav-logo:hover img {
         transform: rotate(-2deg) scale(1.04);
