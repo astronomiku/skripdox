@@ -10,16 +10,17 @@
     <title>SKRIP DOX | Script Consultation</title>
     <style>
       :root {
-        --ink: #141116;
-        --wine: #561f31;
-        --plum: #2a1b2f;
-        --ivory: #f6efe3;
-        --paper: #fffaf1;
-        --bone: #e8dccb;
-        --smoke: #746c73;
-        --citron: #d8ef6f;
-        --rose: #d8a2a8;
-        --blue: #9dbac5;
+        --ink: #151217;
+        --wine: #4a1f2d;
+        --plum: #241c25;
+        --ivory: #f5efe6;
+        --paper: #fffaf3;
+        --bone: #ded2c3;
+        --smoke: #6f6770;
+        --citron: #b7a56a;
+        --rose: #d8cbc6;
+        --blue: #b8c0be;
+        --clay: #c8b3a5;
         --line: rgba(20, 17, 22, 0.18);
       }
 
@@ -82,7 +83,7 @@
         height: 14px;
         border-radius: 999px;
         background: var(--citron);
-        box-shadow: 0 0 0 7px rgba(216, 239, 111, 0.23);
+        box-shadow: 0 0 0 7px rgba(183, 165, 106, 0.18);
       }
 
       .nav {
@@ -135,7 +136,7 @@
         width: clamp(300px, 42vw, 720px);
         aspect-ratio: 1;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(86, 31, 49, 0.2), transparent 64%);
+        background: radial-gradient(circle, rgba(74, 31, 45, 0.14), transparent 64%);
       }
 
       .eyebrow {
@@ -310,7 +311,7 @@
       }
 
       .services {
-        background: linear-gradient(180deg, var(--ivory), #eee0ca);
+        background: linear-gradient(180deg, var(--ivory), #ebe2d6);
       }
 
       .service-grid {
@@ -339,24 +340,30 @@
         background: var(--citron);
       }
 
-      .service-card:nth-child(1) {
-        grid-column: span 5;
-        background: #fff4a8;
-      }
-
-      .service-card:nth-child(2) {
+      .service-card.primary-service {
         grid-column: span 7;
-        background: #f4cbdc;
+        min-height: 430px;
+        background: var(--paper);
       }
 
-      .service-card:nth-child(3) {
+      .service-card.support-service {
+        min-height: 270px;
+        background: #eee6dc;
+      }
+
+      .service-card.support-service:nth-child(2) {
+        grid-column: span 5;
+        background: #e8ded4;
+      }
+
+      .service-card.support-service:nth-child(3) {
         grid-column: 2 / span 5;
-        background: #cfeeda;
+        background: #ddd6cc;
       }
 
-      .service-card:nth-child(4) {
+      .service-card.support-service:nth-child(4) {
         grid-column: span 6;
-        background: #cbe2eb;
+        background: #e4d8cf;
       }
 
       .service-top {
@@ -368,7 +375,8 @@
 
       .card-number {
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(2.6rem, 5vw, 5.2rem);
+        color: rgba(21, 18, 23, 0.64);
+        font-size: clamp(2rem, 4vw, 4.4rem);
         font-weight: 900;
         line-height: 0.8;
       }
@@ -384,9 +392,13 @@
 
       .service-card h3 {
         margin: clamp(44px, 5vw, 70px) 0 12px;
-        font-size: clamp(2.6rem, 5vw, 5.2rem);
+        font-size: clamp(2.35rem, 4.8vw, 5rem);
         font-weight: 900;
         line-height: 0.86;
+      }
+
+      .support-service h3 {
+        font-size: clamp(2rem, 3.2vw, 3.8rem);
       }
 
       .service-card p:last-child {
@@ -514,10 +526,11 @@
           grid-template-columns: 1fr;
         }
 
-        .service-card:nth-child(1),
-        .service-card:nth-child(2),
-        .service-card:nth-child(3),
-        .service-card:nth-child(4) {
+        .service-card.primary-service,
+        .service-card.support-service,
+        .service-card.support-service:nth-child(2),
+        .service-card.support-service:nth-child(3),
+        .service-card.support-service:nth-child(4) {
           grid-column: span 6;
         }
 
@@ -553,10 +566,11 @@
           font-size: clamp(2.7rem, 14vw, 4.2rem);
         }
 
-        .service-card:nth-child(1),
-        .service-card:nth-child(2),
-        .service-card:nth-child(3),
-        .service-card:nth-child(4) {
+        .service-card.primary-service,
+        .service-card.support-service,
+        .service-card.support-service:nth-child(2),
+        .service-card.support-service:nth-child(3),
+        .service-card.support-service:nth-child(4) {
           grid-column: 1 / -1;
           min-height: 300px;
         }
@@ -595,8 +609,8 @@
           <div class="hero-bottom">
             <p class="hero-subtitle">Diagnosis. Options. Execution.</p>
             <p class="hero-copy">
-              Script consultation with teeth, tenderness, and actual cinema mileage. Full-script
-              feedback and development conversations with Moira Lang and Michiko Yamamoto.
+              Per-project screenplay consultation for producers and creative teams who want a sharper,
+              more production-ready draft before the cameras roll.
             </p>
           </div>
         </div>
@@ -604,8 +618,8 @@
         <aside class="hero-side" aria-label="Studio summary">
           <div class="studio-card">
             <div>
-              <p class="eyebrow">For filmmakers with a draft</p>
-              <strong>A private room for story problems.</strong>
+              <p class="eyebrow">For producers and creative teams</p>
+              <strong>A private room for the draft before production.</strong>
               <p>
                 We read for structure, pressure, character logic, emotional truth, and what the next
                 rewrite is really asking for.
@@ -619,7 +633,7 @@
           </div>
 
           <div class="quote-card">
-            <p>Not coverage. A real conversation with the draft.</p>
+            <p>Not coverage. A serious conversation before production begins.</p>
           </div>
 
           <a class="button button-light" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry">
@@ -631,51 +645,54 @@
       <section class="services band" id="services" aria-labelledby="services-title">
         <div class="section-heading">
           <p class="eyebrow">Services offered</p>
-          <h2 id="services-title">Choose the conversation your draft needs.</h2>
+          <h2 id="services-title">One project. One rigorous pass before production.</h2>
         </div>
 
         <div class="service-grid">
-          <article class="service-card">
+          <article class="service-card primary-service">
             <div class="service-top">
-              <p class="service-label">Script Consultation</p>
+              <p class="service-label">Per-project basis</p>
+              <span class="card-number">Project</span>
+            </div>
+            <div>
+              <h3>Screenplay Polish Before Production</h3>
+              <p>
+                Offered to producers, directors, writers, and creative teams who care to perfect and
+                polish the screenplay before starting production.
+              </p>
+            </div>
+          </article>
+
+          <article class="service-card support-service">
+            <div class="service-top">
+              <p class="service-label">Who it is for</p>
               <span class="card-number">01</span>
             </div>
             <div>
-              <h3>Full Script Feedback</h3>
-              <p>A full read with clear notes on structure, character, emotional logic, tone, and the next rewrite.</p>
+              <h3>Producers and creatives</h3>
+              <p>For teams preparing a screenplay for production and needing a focused outside read.</p>
             </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card support-service">
             <div class="service-top">
-              <p class="service-label">Development Package</p>
+              <p class="service-label">What we examine</p>
               <span class="card-number">02</span>
             </div>
             <div>
-              <h3>Across Drafts</h3>
-              <p>Three consultations that follow the project through revision, recalibration, and deeper story work.</p>
+              <h3>Structure and pressure</h3>
+              <p>Character logic, emotional truth, tone, stakes, scenes, rhythm, and production readiness.</p>
             </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card support-service">
             <div class="service-top">
-              <p class="service-label">First Feature Support</p>
+              <p class="service-label">Rates</p>
               <span class="card-number">03</span>
             </div>
             <div>
-              <h3>One Consultation</h3>
-              <p>A focused session for first-time feature filmmakers who need a sharp outside read.</p>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-top">
-              <p class="service-label">First Feature Extended</p>
-              <span class="card-number">04</span>
-            </div>
-            <div>
-              <h3>Three Consultations</h3>
-              <p>A longer runway for first features moving through major rewrites and creative decisions.</p>
+              <h3>Email for the rate card</h3>
+              <p>Send your project format, page count, draft stage, and ideal timeline.</p>
             </div>
           </article>
         </div>
@@ -751,8 +768,8 @@
             <p class="eyebrow">Email us for the rate card</p>
             <h2 id="contact-title">Tell us about your script.</h2>
             <p>
-              Send a short note about your project, where you are in the draft, and what kind of help
-              you need.
+              Send a short note about your project, where you are in the draft, and when you plan to
+              move toward production.
             </p>
           </div>
           <a class="button button-light" href="mailto:hello@yourscriptstudio.com?subject=Script%20consultation%20inquiry&body=Hello%2C%0A%0AI%27d%20like%20to%20ask%20about%20script%20consultation.%0A%0AProject%20format%3A%0APage%20count%3A%0ADraft%20stage%3A%0ATimeline%3A%0AWhat%20I%27m%20looking%20for%3A%0A">
