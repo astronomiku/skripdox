@@ -565,74 +565,58 @@
         min-width: 40px;
       }
 
-      /* The "floor plan" grid — three interlocking rooms of text */
-      .services-floorplan {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 0;
-        padding: 0 clamp(32px, 6vw, 88px) clamp(32px, 5vw, 64px);
-        border-bottom: 3px solid rgba(183, 170, 148, 0.22);
-      }
+  .services-floorplan {
+  position: relative;
+  z-index: 1;
+  min-height: 760px;
+  padding: clamp(40px, 6vw, 90px);
+}
 
-      /* Each "room" in the floor plan */
-      .flr-room {
-        position: relative;
-        padding: clamp(22px, 3vw, 44px) clamp(18px, 2.5vw, 38px);
-        border-right: 2px solid rgba(183, 170, 148, 0.18);
-        border-top: 3px solid transparent;
-        transition: border-top-color 0.3s;
-      }
+.flr-room {
+  position: absolute;
+  max-width: 320px;
+  padding: 22px 24px;
+  background: rgba(27, 22, 20, 0.72);
+  border: 1px solid rgba(239, 226, 206, 0.22);
+  backdrop-filter: blur(6px);
+}
 
-      .flr-room:last-child {
-        border-right: none;
-      }
+.flr-room:nth-child(1) {
+  top: 12%;
+  left: 9%;
+}
 
-      /* The "raised slab" effect — each room feels like a stepped terrace */
-      .flr-room::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 3px;
-      }
+.flr-room:nth-child(2) {
+  top: 36%;
+  right: 13%;
+}
 
-      .flr-room:nth-child(1)::before { background: var(--clay); }
-      .flr-room:nth-child(2)::before { background: var(--sage); }
-      .flr-room:nth-child(3)::before { background: var(--deep-green); }
+.flr-room:nth-child(3) {
+  bottom: 12%;
+  left: 32%;
+}
 
-      /* Room number / eyebrow */
-      .flr-room .eyebrow {
-        color: var(--plaster);
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
+.flr-room .eyebrow {
+  color: var(--parchment);
+}
 
-      .flr-room .eyebrow::before {
-        content: "";
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: currentColor;
-        opacity: 0.6;
-        flex-shrink: 0;
-      }
+.flr-room h3 {
+  color: var(--paper);
+}
 
-      .flr-room h3 {
-        color: var(--paper);
-        font-size: clamp(1.4rem, 2vw, 2.2rem);
-        line-height: 1.1;
-        margin-bottom: 12px;
-      }
+.flr-room p {
+  color: var(--plaster);
+}
 
-      .flr-room p {
-        color: var(--plaster);
-        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-        line-height: 1.6;
-        margin-bottom: 0;
-      }
+.services-niche {
+  position: relative;
+  z-index: 1;
+  padding: 0 clamp(40px, 6vw, 90px) clamp(50px, 6vw, 90px);
+}
+
+.services-niche-img {
+  display: none;
+}
 
       /* The "photo niche" — where the image lives, like a built-in FLW niche */
       .services-niche {
