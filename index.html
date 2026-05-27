@@ -231,17 +231,19 @@
       align-items: start;
     }
 
-.bio-person:first-child .portrait-frame img {
-  object-position: 62% center;
-  transform: scale(1.08);
-}
-
 .bio-person:first-child .portrait-frame {
   clip-path: polygon(
-    0 50%,
+    24% 0,
     100% 0,
-    100% 100%
+    100% 100%,
+    0 100%
   );
+}
+
+.bio-person:first-child .portrait-frame img {
+  object-position: 58% center;
+  transform: scale(1.04);
+}
 }
 
     .bio-person:last-child {
@@ -249,11 +251,21 @@
       grid-template-columns: minmax(0, 0.58fr) minmax(120px, 0.42fr);
     }
 
-    .bio-person:last-child .portrait-frame {
-      grid-column: 2;
-      grid-row: 1;
-      clip-path: polygon(0 0, 72% 0, 100% 10%, 100% 100%, 28% 100%, 0 82%);
-    }
+.bio-person:last-child .portrait-frame {
+  grid-column: 2;
+  grid-row: 1;
+  aspect-ratio: 1.28;
+  clip-path: polygon(
+    50% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+.bio-person:last-child .portrait-frame img {
+  object-position: center 42%;
+  transform: scale(1.06);
+}
 
     .bio-person:last-child .bio-copy {
       grid-column: 1;
